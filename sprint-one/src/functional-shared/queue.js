@@ -1,3 +1,4 @@
+// I had to rewrite this on 10/05/2017. I finshed it on 10/04/2017 but forgot to push my commits.
 var Queue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.

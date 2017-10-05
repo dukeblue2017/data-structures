@@ -1,3 +1,4 @@
+// I had to rewrite this on 10/05/2017. I finshed it on 10/04/2017 but forgot to push my commits.
 var Queue = function() {
   var someInstance = {};
 
@@ -10,7 +11,7 @@ var Queue = function() {
   someInstance.enqueue = function(value) {
     storage[sizeNum] = value;
     sizeNum++;
-    
+
   };
 
   someInstance.dequeue = function() {

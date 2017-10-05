@@ -1,3 +1,5 @@
+// I had to rewrite this on 10/05/2017. I finshed it on 10/04/2017 but forgot to push my commits.
+
 var Stack = function() {
   var someInstance = {};
 
@@ -14,7 +16,7 @@ var Stack = function() {
   someInstance.pop = function() {
     if (sizeNum > 0) {
       sizeNum--;
-      
+
       var popped = storage[sizeNum];
       delete storage[sizeNum];
     }
