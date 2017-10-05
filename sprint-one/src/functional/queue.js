@@ -22,7 +22,6 @@ var Queue = function() {
       for (var i = 0; i <= sizeNum; i++) {
         storage[i] = storage[ i + 1 ];
       }
-      console.log('after loop:', storage)
     }
     return dequeued;
   };
