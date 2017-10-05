@@ -6,15 +6,17 @@ var Stack = function() {
   var sizeNum = 0;
   // Implement the methods below
   someInstance.push = function(value) {
-    sizeNum++;
     storage[sizeNum] = value;
+    sizeNum++;
+
   };
 
   someInstance.pop = function() {
     if (sizeNum > 0) {
+      sizeNum--;
+      
       var popped = storage[sizeNum];
       delete storage[sizeNum];
-      sizeNum--;
     }
     return popped;
   };
