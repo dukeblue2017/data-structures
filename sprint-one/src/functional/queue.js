@@ -18,7 +18,6 @@ var Queue = function() {
       var dequeued = storage[0];
       delete storage[sizeNum];
       sizeNum--;
-      console.log('before loop:', storage);
       for (var i = 0; i <= sizeNum; i++) {
         storage[i] = storage[ i + 1 ];
       }
