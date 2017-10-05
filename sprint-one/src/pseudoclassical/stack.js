@@ -24,4 +24,4 @@ Stack.prototype.size = function() {
   return this.sizeNum;
 };
 
-var firstStack = new Stack();
+//var firstStack = new Stack();
