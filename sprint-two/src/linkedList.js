@@ -32,7 +32,6 @@ var LinkedList = function() {
 
   obj.contains = function(target) {
     var contain = false;
-    console.log(obj);
     for (var item in obj) {
       if (obj[item].value === target) {
         return true;
