@@ -18,39 +18,44 @@ Graph.prototype.contains = function(node) {
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
   delete this.storage[node];
+  for (var item in this.storage) {
+    if (this.storage[item].hasOwnProperty(node)) {
+      delete this.storage[item][node];
+    }
+  }
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
 Graph.prototype.hasEdge = function(fromNode, toNode) {
-  // var toEdges = this.storage[toNode].edges;
-  // var fromEdges = this.storage[fromNode].edges;
-  // var toInFrom = false;
-  // var fromInTo = false;
-  // for (var i = 0; i < toEdges.length; i++) {
-  //   if (toEdges[i] === fromNode) {
-  //     fromInTo = true;
-  //   }
-  // }
-  // for (var j = 0; j < fromEdges.length; j++) {
-  //   if (fromEdges[j] === toNode) {
-  //     toInFrom = true;
-  //   }
-  // }
 
-  // return (toInFrom && fromInTo);
-  var x = fromNode in this.storage[toNode] && this.storage[toNode][fromNode] === 'edge';
-  var y = toNode in this.storage[fromNode] && this.storage[fromNode][toNode] === 'edge';
+  var x = false;
+  var y = false;
+
+  if (this.storage.hasOwnProperty(fromNode)) {
+    if (this.storage[fromNode].hasOwnProperty(toNode)) {
+      if (this.storage[toNode][fromNode] === 'edge') {
+        x = true;
+      }
+      
+    }
+  }
+
+  if (this.storage.hasOwnProperty(toNode)) {
+    if (this.storage[toNode].hasOwnProperty(fromNode)) {
+      if (this.storage[fromNode][toNode] === 'edge') {
+        y = true;
+      }
+      
+    }
+  }
   return x && y;
 };
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
-  // this.storage[fromNode].edges.push(toNode);
-  // this.storage[toNode].edges.push(fromNode);
-  // console.log(this.storage)
+  
   this.storage[fromNode][toNode] = 'edge';
   this.storage[toNode][fromNode] = 'edge';
-  console.log(this.storage[fromNode], this.storage[toNode]);
 
 };
 
@@ -62,10 +67,20 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
+  for (var item in this.storage) {
+    cb(item);
+  }
 };
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ addNode: O(1)
+ contains: O(1)
+ removeNOde: O(n)
+ hasEdge: O(1)
+ addEdge: O(1)
+ removeEdge: O(1)
+ forEachNode: O(n)
  */
 
 
