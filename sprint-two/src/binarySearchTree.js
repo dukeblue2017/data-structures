@@ -3,7 +3,7 @@ var BinarySearchTree = function(value) {
 };
 
 BinarySearchTree.prototype.insert = function() {
-  return 5;
+
 };
 
 
