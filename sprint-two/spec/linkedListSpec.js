@@ -51,5 +51,10 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  it('should not add or contain "undefined"', function() {
+    linkedList.addToTail(undefined);
+    expect(linkedList.contains(undefined)).to.equal(false);
+  })
+
   // add more tests here to test the functionality of linkedList
 });

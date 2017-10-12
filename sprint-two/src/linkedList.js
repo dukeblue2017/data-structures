@@ -4,16 +4,19 @@ var LinkedList = function() {
   obj.tail = null;
 
   obj.addToTail = function(value) {
-    var newNode = Node(value);
-    var oldTail = obj.tail;
-    if (obj.tail === null && obj.head === null) {
-      obj.head = newNode;
-      obj.tail = newNode;
-      obj.head.next = obj.tail;
-    }
-    if (obj.tail !== null && obj.head !== null) {
-      obj.tail.next = newNode;
-      obj.tail = newNode;
+    if (value !== undefined) {
+
+      var newNode = Node(value);
+      var oldTail = obj.tail;
+      if (obj.tail === null && obj.head === null) {
+        obj.head = newNode;
+        obj.tail = newNode;
+        obj.head.next = obj.tail;
+      }
+      if (obj.tail !== null && obj.head !== null) {
+        obj.tail.next = newNode;
+        obj.tail = newNode;
+      }
     }
 
   };
@@ -31,6 +34,7 @@ var LinkedList = function() {
 
 
   obj.contains = function(target) {
+    if (target === undefined) return false;
     var contain = false;
     for (var item in obj) {
       if (obj[item].value === target) {
