@@ -11,6 +11,7 @@ describe('tree', function() {
     expect(tree.hasOwnProperty('value')).to.equal(true);
   });
 
+
   it('should add children to the tree', function() {
     tree.addChild(5);
     expect(tree.children[0].value).to.equal(5);
@@ -39,6 +40,13 @@ describe('tree', function() {
     tree.children[1].addChild(8);
     expect(tree.contains(7)).to.equal(true);
     expect(tree.contains(8)).to.equal(true);
+  });
+
+  it('should not add undefined children', function() {
+    var firstTree = JSON.stringify(tree);
+    tree.addChild(undefined);
+    var secondTree = JSON.stringify(tree);
+    expect(firstTree).to.equal(secondTree);
   });
 
 });
