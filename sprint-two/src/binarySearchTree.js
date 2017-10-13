@@ -9,6 +9,9 @@ var BinarySearchTree = function(value) {
 
 
 BinarySearchTree.prototype.insert = function(value) {
+	if (value === undefined) {
+		return;
+	}
 	var node = BinarySearchTree(value);
 
 

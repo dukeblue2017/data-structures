@@ -37,4 +37,10 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  it('should not insert undefined nodes', function() {
+    binarySearchTree.insert(undefined);
+    expect(binarySearchTree.contains(undefined)).to.equal(false);
+  });
+
 });
